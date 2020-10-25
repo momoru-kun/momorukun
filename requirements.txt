@@ -3,3 +3,4 @@ Flask_SQLAlchemy
 Flask_Migrate
 Flask_SocketIO
 gunicorn
+psycopg2
