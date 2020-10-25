@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-style: normal;
+    src: url('/static/fonts/roboto/Roboto-Light.ttf')
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #212121;
+    color: white;
+    min-height: 100%;
+    overflow: hidden;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    -webkit-box-shadow: 0px 4px 9px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 4px 9px 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 4px 9px 0px rgba(0,0,0,0.25);
+}
+  
+#header li {
+    float: left;
+}
+  
+#header li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+  
+.active {
+    background-color: #5f5dfb;
+}
+
+.right {
+    float: right !important;
+}
+
+li a:hover {
+    background-color: #8281e2;
+}
+
+#content {
+    margin: 15px;
+}
+
+#piechart {
+    background-color: #333;
+    -webkit-box-shadow: 0px 4px 9px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 4px 9px 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 4px 9px 0px rgba(0,0,0,0.25);
+    border-radius: 15px;
+}
