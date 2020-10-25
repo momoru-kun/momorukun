@@ -1,0 +1,108 @@
+{% extends "head.html" %}
+{% block content %}
+        <div class="overlay">
+            <nav class="overlayMenu">
+                <ul role="menu">
+                    <li style="text-align: center;">
+                        <a href="https://vk.com/momoru_kun" class="iconicLink"><i class="im im-vk"></i></a>
+                        <a href="https://github.com/ale-alexandro" class="iconicLink"><i class="im im-github"></i></a>
+                        <a href="https://instagram.com/momoru_kun" class="iconicLink"><i class="im im-instagram"></i></a>
+                    </li>
+                    <li><a href="#Hello" role="menuitem" >Hello World</a></li>
+                    <li><a href="#Who" role="menuitem" >Кто я?</a></li>
+                    <li><a href="#What" role="menuitem" >Чем я занимаюсь?</a></li>
+                    <li><a href="#Why" role="menuitem" >Чатик</a></li>
+                </ul>
+            </nav>
+            <a href="mailto:wowgonit@gmail.com" id="emailLink">Напиши мне</a>
+        </div>
+        <div class="navBurger" role="navigation" id="navToggle"></div>
+        <div id="fullpage" style="transition: 0.5s;">
+            <div class="section" id="MainSlide" data-anchor="Hello">
+                <h1 class="glitch" data-text="HELLO WORLD!" style="text-align: center;">HELLO WORLD!</h1>
+                <h3 style="text-align: center;">By Momoru Kun</h5>
+            </div>
+            <div class="section" data-anchor="Who">
+                <h1 class="HeadLine"> Кто я? </h1>
+                <div class = "article">
+                    <div class="mylookImg">
+                        <div class="ambilight">
+                            <img src="/static/img/me.jpg" class="light" />
+                            <div class="image" /></div>
+                        </div>
+                        <div> А я вот такой вот </div>
+                    </div>
+                    Привет! Меня зовут Александр. <br> Я учусь в Университете ИТМО, занимаюсь разработкой различной электроники(esp, stm, avr) и пишу музыку. <br /><br />
+                    Так же я начал заниматься веб разработкой и это моя первая работа - надеюсь, она вам понравится. <br />
+                    И мне бы очень хотелось, что вы <a class="link" id="vote" href="javascript:void(0)"> оценили данный сайт </a>
+                </div>
+            </div>
+            <div class="section" data-anchor="What">
+                <h1 class="HeadLine"> Зачем я? </h1>
+                <div class = "article">
+                </div>
+            </div>
+            <div class="section" data-anchor="Why">
+                <h1 class="HeadLine"> Чатик </h1>
+                <div class = "article">
+                    <div id = "messageSection">
+                        
+                    </div>
+                    <div id="send_message_section">
+                        <form id="broadcast" method="GET" action='#'>
+                            <input type="text" name="broadcast_data" id="broadcast_data" placeholder="Message">
+                            <input type="submit" value="Broadcast">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="voteModal">
+            <div id="head">Оцените эту работу</div>
+            <a href = "javascript:void(0)" id="closeVote"> X </a>
+
+            <div id="container">
+                <form id="voteForm">
+                    <label class="container" style="margin-left: 0;">1
+                        <input type="radio" name="vote" value="1">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">2
+                        <input type="radio" name="vote" value="2">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">3
+                        <input type="radio" name="vote" value="3">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container" >4
+                        <input type="radio" name="vote"value="4">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container" >5
+                        <input type="radio" name="vote" value="5">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="sendVote">
+                        <div>Отправить</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/static/js/scrolloverflow.min.js"></script>
+        <script src="/static/js/fullpage.js"></script>
+        <script src="/static/js/index.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+        <script src="/static/js/messages.js"></script>
+{% endblock %}
+
+<!--{% for message in messages %}
+                            <div class = "message">
+                                <div class = "text">{{ message.text }}</div>
+                            </div>
+                        {% endfor %}-->

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+        <title> MomoruKun.tk - статистика </title>
+        <meta charset="uft-8" />
+        <link rel="stylesheet" type="text/css" href="/static/css/stats.css">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+
+                var data = google.visualization.arrayToDataTable([
+                    ['Оценка', 'Количество'],
+                    ['5',       {{ vote_cnt[4] }}],
+                    ['4',       {{ vote_cnt[3] }}],
+                    ['3',       {{ vote_cnt[2] }}],
+                    ['2',       {{ vote_cnt[2] }}],
+                    ['1',       {{ vote_cnt[0] }}]
+                ]); 
+
+                var options_votes = {
+                    title: 'Оценки',
+                    backgroundColor: 'transparent',
+                    colors: ['#5F5DFB', '#6F6EFB', '#7E7DFD', '#A5A3FD', '#CAC7FE'],
+                    legend: {textStyle: {color: 'white'}},
+                    titleTextStyle: {color: '#5df8fb'},
+                    pieHole: 0.4,
+                    legend: 'none'
+                };
+
+                var votes = new google.visualization.PieChart(document.getElementById('piechart_votes'));
+                //var visits = new google.visualization.Histogram(document.getElementById('histogram_visits'));
+
+                chart.draw(votes, options_votes);
+                //chart.draw(visits, options_visits);
+            }
+        </script>
+    <body>
+        <ul id = "header">
+            <li class="active"><a href="/stats">Статистика сайта</a></li>
+            <li class="right"><a href="/">Назад к сайту</a></li>
+        </ul>   
+        <div id="content">
+            <div id="piechart_votes" style="width: 300px; height: 300px;"></div>
+            <div id="histogram_visits" style="width: 300px; height: 300px;"> Сегодня на сайте было {{ visits }} человек </div>
+        </div>
+    </body>
+</html>
