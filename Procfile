@@ -1,1 +1,1 @@
-web: flask db upgrade; gunicorn momorukun:app
+web: flask db upgrade; gunicorn --worker-class socketio.sgunicorn.GeventSocketIOWorker momorukun:app
