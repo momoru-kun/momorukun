@@ -1,4 +1,6 @@
 import os
+import random
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 chars = '+-/*!&$#?=@<>abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
 
