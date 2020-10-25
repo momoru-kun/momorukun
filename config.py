@@ -1,7 +1,14 @@
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
+chars = '+-/*!&$#?=@<>abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+
+def generator(self, length):
+    key = ''
+    for i in range(length):
+        key += random.choice(chars)
+    return key
 
 class Config(object):
-    SECRET_KEY = '}!0%yAsQ=n2EHFLPUE&:Gh3j9[-DR#/1tKX43y[^s3'
+    SECRET_KEY = generator(32)
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
