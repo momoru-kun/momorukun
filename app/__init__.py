@@ -18,6 +18,13 @@ migrate = Migrate(app, db)
 socketio = SocketIO(app, async_mode=None)
 babel = Babel(app)
 
+@app.before_request
+def before_request():
+    if request.url.startswith('http://'):
+        url = request.url.replace('http://', 'https://', 1)
+        code = 301
+        return redirect(url, code=code)
+
 @babel.localeselector
 def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'])
