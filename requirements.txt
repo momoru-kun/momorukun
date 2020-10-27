@@ -1,7 +1,8 @@
 Flask
-Flask_SQLAlchemy
-Flask_Migrate
-Flask_SocketIO
+Flask-SQLAlchemy
+Flask-Migrate
+Flask-SocketIO
+Flask-babel
 gunicorn
 psycopg2
 gevent

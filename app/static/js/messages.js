@@ -1,37 +1,43 @@
+namespace = '/momoru.messages';
+var socket = io(namespace);
 
-    // Use a "/test" namespace.
-    // An application can open a connection on multiple namespaces, and
-    // Socket.IO will multiplex all those connections on a single
-    // physical channel. If you don't care about multiple channels, you
-    // can set the namespace to an empty string.
-    namespace = '/test';
+socket.on('connect', function() {
+    socket.emit('my_event', {data: 'I\'m connected!'});
+});
 
-    // Connect to the Socket.IO server.
-    // The connection URL has the following format, relative to the current page:
-    //     http[s]://<domain>:<port>[/<namespace>]
-    var socket = io(namespace);
+socket.on('my_response', function(msg, cb) {
+    if (msg.event == "message") {
+        $('#messageSection').append("<br> <div class='message'><span style='color:rgb(93,248,251);'>" + msg.name + ":&nbsp;</span>"+msg.data+"</div>");
+        var scrl = $(".message")[$(".message").length - 1].offsetTop + $(".message")[$(".message").length - 1].offsetHeight;
+        $("#messageSection").animate({scrollTop: scrl}, 0)
+    } 
+    else if (msg.event == "connect") {
+        $("#Online").html(msg.online + " Online");
+        console.log(msg);
+    }
+    else if (msg.event == "disconnect") {
+        $("#Online").html(msg.online + " Online");
+        console.log(msg);
+    }
+});
 
-    // Event handler for new connections.
-    // The callback function is invoked when a connection with the
-    // server is established.
-    socket.on('connect', function() {
-        socket.emit('my_event', {data: 'I\'m connected!'});
-    });
 
-    // Event handler for server sent data.
-    // The callback function is invoked whenever the server emits data
-    // to the client. The data is then displayed in the "Received"
-    // section of the page.
-    socket.on('my_response', function(msg, cb) {
-        $('#messageSection').append('<br>' + $('<div/>').text('Received #' + msg.count + ': ' + msg.data).html());
-    });
 $(document).ready(function() {
-    // Handlers for the different forms in the page.
-    // These accept data from the user and send it to the server in a
-    // variety of ways
-    $('form#broadcast').submit(function(event) {
+    $('#send_message').click(function(event) {
         event.preventDefault();
-        socket.emit('my_broadcast_event', {data: $('#broadcast_data').val()});
+        socket.emit('new_message', {data: {text: $('#message_text').val(), name: $('#message_name').val()}});
         return false;
+    });
+    $("#message_name").keyup(function(event){
+        if(event.keyCode == 13){
+            event.preventDefault();
+        }
+    });
+    $("#message_text").keyup(function(event){
+        if(event.keyCode == 13){
+            event.preventDefault();
+            socket.emit('new_message', {data: {text: $('#message_text').val(), name: $('#message_name').val()}});
+            return false;
+        }
     });
 });

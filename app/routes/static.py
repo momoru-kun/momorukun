@@ -30,7 +30,7 @@ def send_androidchrome256x256():
 
 @app.route('/android-chrome-192x192.png')
 def send_androidchrome192x192():
-    return send_from_directory('static', 'android-chrome-129x192.png')
+    return send_from_directory('static', 'android-chrome-192x192.png')
 
 # Apple
 @app.route('/apple-touch-icon.png')

@@ -555,62 +555,10 @@ h3 {
 	cursor: default;
 }
 
-#messageSection {
-	overflow: scroll;
-	width: 100%;
-}
-
-textarea {
-	outline: none;
-	-moz-appearance: none;
+iframe {
+	margin-bottom: 20px;
 	border: none;
-	border-bottom: solid 1px #999999;
-	transition: 0.2s;
-	display: inline;
-	background: none;
-	color: white;
-}
-
-textarea:hover {
-	border-bottom: solid 1px rgb(93,248,251);
-}
-
-#send_message {
-    display: inline;
-    color: white;
-}
-
-#send_message:hover {
-    text-shadow: 0 0 10px rgba(93,248,251,0.3), 0 0 6px rgba(93,248,251,0.4), 0 0 10px rgba(93,248,251,0.3);
-    color: rgb(93,248,251);
-}
-
-.message {
-    background-color: #5f5dfb;
-    border-radius: 5px;
-    display: block;
-    margin: 15px;
-    width: 250px;
-}
-
-.message .username {
-    font-size: 10pt;
-    color: #dddddd;
-    display: block;
-    margin-left: 5px;
-    margin-top: 5px;
-}
-
-.message .text {
-    margin-left: 15px;
-    font-size: 12pt;
-}
-
-.message .time
-{
-    margin: 5px;
-    font-size: 6pt;
-    color: #dddddd;
+	background: transparent;
 }
 
 @media screen and (min-height: 2160px) {
