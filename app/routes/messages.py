@@ -34,6 +34,9 @@ def send_messages_iframe():
 
 @socketio.on('new_message', namespace='/momoru.messages')
 def new_message(message):
+    if message['data']['text'].replace(" ", "") == "":
+        return
+    
     name = ""
     if message['data']['name'].replace(" ", "") == "":
         name = "Anon"
