@@ -7,7 +7,7 @@ socket.on('connect', function() {
 
 socket.on('my_response', function(msg, cb) {
     if (msg.event == "message") {
-        $('#messageSection').append("<br> <div class='message'><span style='color:rgb(93,248,251);'>" + msg.name + ":&nbsp;</span>"+msg.data+"</div>");
+        $('#messageSection').append("<br> <div class='message'><span>" + msg.name + ":&nbsp;</span>"+msg.data+"</div>");
         var scrl = $(".message")[$(".message").length - 1].offsetTop + $(".message")[$(".message").length - 1].offsetHeight;
         $("#messageSection").animate({scrollTop: scrl}, 0)
     } 
@@ -26,6 +26,7 @@ $(document).ready(function() {
     $('#send_message').click(function(event) {
         event.preventDefault();
         socket.emit('new_message', {data: {text: $('#message_text').val(), name: $('#message_name').val()}});
+        $("#message_text").val("");
         return false;
     });
     $("#message_name").keyup(function(event){
@@ -37,6 +38,7 @@ $(document).ready(function() {
         if(event.keyCode == 13){
             event.preventDefault();
             socket.emit('new_message', {data: {text: $('#message_text').val(), name: $('#message_name').val()}});
+            $("#message_text").val("");
             return false;
         }
     });
