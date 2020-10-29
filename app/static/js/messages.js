@@ -42,4 +42,7 @@ $(document).ready(function() {
             return false;
         }
     });
+    
+    var scrl = $(".message")[$(".message").length - 1].offsetTop + $(".message")[$(".message").length - 1].offsetHeight;
+    $("#messageSection").animate({scrollTop: scrl}, 0)
 });
